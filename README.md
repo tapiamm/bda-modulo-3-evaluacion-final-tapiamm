@@ -100,10 +100,6 @@ Se calcularon la media, desviación estándar y percentiles para cada grupo educ
 
 * Prueba de hipótesis: Se aplicó el test no paramétrico de Kruskal-Wallis, concluyendo que no existen diferencias significativas entre los grupos educativos en cuanto a vuelos reservados.
 
-### 📤 Exportación
-
-Inicialmente se realizaron todos estos pasos en Jupyter Notebook pero también se exportan a Python, para poder reutilizar este código si fuera necesario, ya que el Jupyter no esta diseñado para ello. En este caso se tuvieron que cambiar algunas funciones de ETL porque contenían código especificífico de Jupyter (display por ejemplo).
-
 ### 🧪 Conclusión
 
 El análisis permitió identificar patrones relevantes en el comportamiento de los clientes. Además, el estudio estadístico confirmó que el nivel educativo mo influye significativamente en la cantidad de vuelos reservados. Esto puede ser relevante para estrategias de marketing. Dado que todos los niveles educativos presentan un comportamiento similar en cuanto a reservas, los recursos pueden enfocarse en otras variables más influyentes, como el tipo de tarjeta de fidelidad, la frecuencia de vuelos, el historial de puntos acumulados o el CLV (Customer Lifetime Value). Esta información ayuda a tomar decisiones más eficientes en cuanto a personalización de ofertas, fidelización y diseño de estrategias comerciales que realmente impacten en la actividad del cliente.
