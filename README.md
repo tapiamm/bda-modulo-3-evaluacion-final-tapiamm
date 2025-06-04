@@ -5,6 +5,12 @@
 
 Este proyecto consiste en la exploración, limpieza, visualización y análisis estadístico de un conjunto de datos de clientes pertenecientes a un programa de fidelización de vuelos. El objetivo es comprender mejor su comportamiento y características, así como responder a ciertas preguntas de negocio mediante herramientas de análisis y visualización en Python.
 
+#### 🧰 Creación Funciones
+
+Con el objetivo de reutilizar el código y mantener una estructura más limpia en el proyecto, se ha creado un archivo .py llamado etl_funciones.py. En él se definen funciones específicas para las tareas de Extracción, Transformación y Carga (ETL), como la limpieza de datos, tratamiento de nulos, cambio de tipos de datos, fusiones de tablas y guardar los datos en distintos formatos.
+
+Estas funciones permiten aplicar los mismos procesos de forma eficiente en distintas etapas del análisis, especialmente en la fase exploratoria y en la preparación de datos para los análisis estadísticos posteriores.
+
 #### 📂 Datos utilizados
 
 Se han utilizado dos archivos CSV por separado y combinados en un único DataFrame llamado customer_info, que contiene información sobre:
@@ -93,6 +99,10 @@ Se calcularon la media, desviación estándar y percentiles para cada grupo educ
 * Homogeneidad de varianzas: Se asumió que las varianzas no son homogéneas (los datos no son normales).
 
 * Prueba de hipótesis: Se aplicó el test no paramétrico de Kruskal-Wallis, concluyendo que no existen diferencias significativas entre los grupos educativos en cuanto a vuelos reservados.
+
+### 📤 Exportación
+
+Inicialmente se realizaron todos estos pasos en Jupyter Notebook pero también se exportan a Python, para poder reutilizar este código si fuera necesario, ya que el Jupyter no esta diseñado para ello. En este caso se tuvieron que cambiar algunas funciones de ETL porque contenían código especificífico de Jupyter (display por ejemplo).
 
 ### 🧪 Conclusión
 
