@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 
 # Librerías de funciones creadas
 # -----------------------------------------------------------------------
-import funciones_ETL_copy as etl
+import funciones_ETL_II as etl
 
 # Configuración
 # -----------------------------------------------------------------------

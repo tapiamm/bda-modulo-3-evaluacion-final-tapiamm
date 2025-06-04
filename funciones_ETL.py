@@ -1,3 +1,4 @@
+#Funciones para Jupyter Notebook
 
 # Tratamiento de datos
 # -----------------------------------------------------------------------

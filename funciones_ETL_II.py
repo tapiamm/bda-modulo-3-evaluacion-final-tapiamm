@@ -1,3 +1,5 @@
+# Funciones para usar en el archivo exportado de Jupyter a Python
+
 
 # Tratamiento de datos
 # -----------------------------------------------------------------------
