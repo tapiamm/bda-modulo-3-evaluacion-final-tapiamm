@@ -1,105 +1,123 @@
-# EVALUACIÓN MÓDULO 3 
+# ✈️ Customer Data & Flight Activity Analysis
 
+This project involves data exploration, cleaning, visualization, and statistical analysis on a dataset of customers from a flight loyalty program. The goal is to better understand customer behavior and characteristics, and to answer key business questions using Python tools.
 
-### ✈️ Análisis de Datos de Clientes y Actividad de Vuelos
+---
 
-Este proyecto consiste en la exploración, limpieza, visualización y análisis estadístico de un conjunto de datos de clientes pertenecientes a un programa de fidelización de vuelos. El objetivo es comprender mejor su comportamiento y características, así como responder a ciertas preguntas de negocio mediante herramientas de análisis y visualización en Python.
+## 🧰 Custom ETL Functions
 
-#### 🧰 Creación Funciones
+To keep the code organized and reusable, a `.py` file called `etl_funciones.py` was created. It contains specific functions for the ETL process, such as:
 
-Con el objetivo de reutilizar el código y mantener una estructura más limpia en el proyecto, se ha creado un archivo .py llamado etl_funciones.py. En él se definen funciones específicas para las tareas de Extracción, Transformación y Carga (ETL), como la limpieza de datos, tratamiento de nulos, cambio de tipos de datos, fusiones de tablas y guardar los datos en distintos formatos.
+- Data cleaning
+- Null value handling
+- Data type conversions
+- Merging tables
+- Saving data in different formats
 
-Estas funciones permiten aplicar los mismos procesos de forma eficiente en distintas etapas del análisis, especialmente en la fase exploratoria y en la preparación de datos para los análisis estadísticos posteriores.
+These functions allowed efficient and consistent processing during the exploratory and analytical phases.
 
-#### 📂 Datos utilizados
+---
 
-Se han utilizado dos archivos CSV por separado y combinados en un único DataFrame llamado customer_info, que contiene información sobre:
+## 📂 Dataset Overview
 
-* Datos demográficos de los clientes
+Two CSV files were merged into a single DataFrame called `customer_info`, which includes:
 
-* Su historial de vuelos
+- Customer demographic data  
+- Flight history  
+- Earned and redeemed loyalty points  
+- Type of loyalty card and signup details  
 
-* Puntos acumulados y redimidos
+---
 
-* Tipo de tarjeta de fidelidad y detalles de inscripción
+## 🔍 Phase 1: Data Exploration & Cleaning
 
-### 🔍 Fase 1: Exploración y Limpieza
+### 🧭 Initial Exploration
+- Detected null values (e.g., cancellation date)
+- Found duplicates (one record per customer per month)
+- Used `info()`, `describe()`, and `value_counts()` to evaluate data quality and structure
 
-#### 🧭 Exploración inicial
+### 🧹 Cleaning
+- Handled nulls based on relevance
+- Grouped by Loyalty Number to remove duplicates for customer-level analysis
+- Converted columns to efficient types like `category` or `Int64` for optimization
 
-Se identificaron valores nulos en variables como año/mes de cancelación.
+---
 
-Se observaron registros duplicados debido a que cada cliente aparece una vez por mes.
+## 📊 Phase 2: Visualization & Analysis
 
-Se realizó un análisis con info(), describe(), y value_counts() para conocer la estructura y calidad de los datos.
+Visualizations were created with `matplotlib` and `seaborn` to answer the following key questions:
 
-#### 🧹 Limpieza de datos
-Se eliminaron o gestionaron los nulos según la relevancia de las columnas.
+### 📅 How are bookings distributed across months?
+- Grouped by booking month  
+- Bar plot to identify trends and seasonality
 
-Se agruparon registros por Loyalty Number cuando fue necesario para evitar duplicados en análisis por cliente.
+### ✈️ Is there a relationship between flight distance and loyalty points?
+- Aggregated data per customer  
+- Scatter plot with regression line showing a positive correlation
 
-Se convirtieron columnas a tipos de datos más eficientes como category o Int64 para optimizar memoria y claridad.
+### 🗺️ Customer distribution by province
+- Unique customers grouped by province  
+- Count plot sorted by frequency
 
-### 📊 Fase 2: Visualización
+### 💸 Average salary by education level
+- Salaries grouped by education  
+- Bar and box plots to compare means and variation
 
-Se realizaron diferentes visualizaciones con matplotlib y seaborn en los para responder a las siguientes preguntas de la forma más eficiente evitando duplicados.
+### 💳 Loyalty card type proportions
+- Pie chart showing distribution by card type
 
-#### 📅 ¿Cómo se distribuye la cantidad de vuelos reservados por mes?
+### ❤️ Distribution by marital status and gender
+- Grouped bar plot (`hue='Gender'`) to visually compare categories
 
-Se agruparon los vuelos por mes del año.
+---
 
-Gráfico de barras para observar estacionalidad o tendencias.
+## 🎓 BONUS: Statistical Evaluation by Education Level
 
-#### ✈️ ¿Existe una relación entre distancia de vuelo y puntos acumulados?
+### 🎯 Goal:
+Test whether there are significant differences in flight bookings by education level.
 
-Se agruparon los datos por cliente.
+#### 1️⃣ Data Prep
+- Aggregated monthly bookings per customer  
+- Filtered relevant columns: `Flights Booked` and `Education`
 
-Se utilizó un gráfico de dispersión con regresión (regplot) para mostrar correlación positiva entre ambas variables.
+#### 2️⃣ Descriptive Analysis
+- Calculated means, standard deviation, and percentiles for each group
 
-#### 🗺️ ¿Cuál es la distribución de clientes por provincia?
+#### 3️⃣ Statistical Tests
+- **Normality**: Shapiro-Wilk or Kolmogorov-Smirnov → non-normal distribution  
+- **Variance Homogeneity**: Not assumed due to lack of normality  
+- **Hypothesis Test**: Kruskal-Wallis test showed no significant differences among groups
 
-Se consideraron clientes únicos (Loyalty Number).
+---
 
-Se usó countplot con orden descendente de provincias.
+## 🧪 Conclusion
 
-#### 💸 ¿Cómo varía el salario medio según el nivel educativo?
+This analysis revealed useful customer behavior patterns. The statistical test confirmed that education level does **not** significantly affect the number of flights booked.  
+Marketing strategies can therefore focus on other influential variables like loyalty card type, flight frequency, points earned, or Customer Lifetime Value (CLV). These insights support more effective decision-making in personalization, loyalty programs, and campaign targeting.
 
-Se agruparon los salarios por nivel de educación.
+---
 
-Se usaron gráficos de barras y cajas para observar medias y dispersión.
+## 🗂️ Files
 
-#### 💳 ¿Qué proporción de clientes tiene cada tipo de tarjeta de fidelidad?
+- `etl_funciones.py`: Custom ETL functions  
+- `flight_analysis.ipynb`: Jupyter Notebook with full analysis  
+- `customer_data.csv`: Merged dataset used in the project
 
-Se graficó la proporción usando pieplot agrupando por tarjeta de fidelidad.
+---
 
-#### ❤️ ¿Cómo se distribuyen los clientes por estado civil y género?
+## 🚀 Next Steps
 
-Gráfico de barras agrupado (hue='Gender') para comparar visualmente ambos factores.
+- Build interactive dashboards in Tableau or Power BI  
+- Apply clustering techniques to segment customer types  
+- Integrate additional data sources for deeper insights  
+- Automate ETL with scheduled Python scripts
 
-### 🎓 BONUS: Evaluación de diferencias por educación
+---
 
-#### 🎯 Objetivo:
+## 📬 Contact
 
-Determinar si existen diferencias significativas en el número de vuelos reservados según el nivel educativo.
+Feel free to reach out or explore more of my work:
 
-#### 1️⃣ Preparación
+- [LinkedIn](www.linkedin.com/in/maría-tapia-1639b21b4)  
+- [GitHub](https://github.com/tapiamm) 
 
-Se agruparon los datos por Loyalty Number para sumar los vuelos mensuales por cliente.
-
-Se filtraron únicamente las columnas Flights Booked y Education.
-
-#### 2️⃣ Análisis descriptivo
-
-Se calcularon la media, desviación estándar y percentiles para cada grupo educativo.
-
-#### 3️⃣ Pruebas estadísticas
-
-* Normalidad: Se aplicó la prueba de Shapiro-Wilk o Kolmogorov-Smirnov (según tamaño muestral) → los datos no son normales.
-
-* Homogeneidad de varianzas: Se asumió que las varianzas no son homogéneas (los datos no son normales).
-
-* Prueba de hipótesis: Se aplicó el test no paramétrico de Kruskal-Wallis, concluyendo que no existen diferencias significativas entre los grupos educativos en cuanto a vuelos reservados.
-
-### 🧪 Conclusión
-
-El análisis permitió identificar patrones relevantes en el comportamiento de los clientes. Además, el estudio estadístico confirmó que el nivel educativo mo influye significativamente en la cantidad de vuelos reservados. Esto puede ser relevante para estrategias de marketing. Dado que todos los niveles educativos presentan un comportamiento similar en cuanto a reservas, los recursos pueden enfocarse en otras variables más influyentes, como el tipo de tarjeta de fidelidad, la frecuencia de vuelos, el historial de puntos acumulados o el CLV (Customer Lifetime Value). Esta información ayuda a tomar decisiones más eficientes en cuanto a personalización de ofertas, fidelización y diseño de estrategias comerciales que realmente impacten en la actividad del cliente.
